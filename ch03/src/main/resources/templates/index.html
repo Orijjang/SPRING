@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+
+<body>
+    <h3>Spring Boot</h3>
+
+    <h4>Spring Boot 기본</h4>
+    <a href="/ch03/sub1/hello">hello</a>
+    <a href="/ch03/sub1/welcome">welcome</a>
+
+    <h4>Thymeleaf 기본</h4>
+    <!-- 출력 -->
+    <p>[[${str1}]]</p>
+    <p th:text="${str2}">내용출력</p>
+    <p th:text="${str3}">내용출력</p>
+
+    <!-- 조건문 -->
+    <p>
+        <span th:if="${user1.name=='홍길동'}">user1은 홍길동 입니다.</span>
+        <span th:if="${user1.name=='김유신'}">user1은 김유신 입니다.</span>
+    </p>
+    <p>
+        <span th:if="${user1.age >= 20}">user1은 20세 이상 입니다.</span>
+        <span th:unless="${user1.age >= 20}">user1은 20세 이상이 아닙니다.</span>
+    </p>
+    <p th:switch="${user2.age >= 20}">
+        <span th:case="true">user2는 20세 이상입니다.</span>
+        <span th:case="false">user2는 20세 미만입니다.</span>
+    </p>
+    <p>
+        <span th:if="${user4}">user4는 null 아닙니다.</span>
+        <span th:unless="${user4}">user4는 null 입니다.</span>
+    </p>
+
+
+    <!-- 반복문 -->
+    <table border="1">
+        <tr th:each="user:${dtoList}">
+            <td>[[${user.uid</td>
+
+
+
+        </tr>
+
+
+    </table>
+
+    <!-- 링크 -->
+    <a th:href="@{/sub1/hello}">Hello</a>
+    <a th:href="@{/sub1/welcome}">Welcome</a>
+
+
+    <!-- include -->
+    <th:block th:include="/inc/_head.html"/>
+    <th:block th:include="/inc/_tail.html"/>
+
+    <div th:insert="/inc/_head.html"></div>
+    <div th:insert="/inc/_head.html"></div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user1::list</title>
+</head>
+<body>
+<h3>user1 목록</h3>
+
+<a th:href="@{/}">처음</a>
+<a th:href="@{/user1/register}">등록</a>
+
+<table border="1">
+    <tr>
+        <th>아이디</th>
+        <th>이름</th>
+        <th>생년월일</th>
+        <th>나이</th>
+        <th>관리</th>
+    </tr>
+    <tr th:each="user:${dtoList}">
+        <td>a101</td>
+        <td>홍길동</td>
+        <td>1921-03-09</td>
+        <td>33</td>
+        <td>
+            <a th:href="@{/user1/modify}">수정</a>
+            <a th:href="@{#}">삭제</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
